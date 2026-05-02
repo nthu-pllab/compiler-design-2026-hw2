@@ -12,18 +12,26 @@ int yylex();
 %union {
   int intVal;
   double dblVal;
-  char * strVal;
+  char *strVal;
   char chVal;
 }
 
+%token <strVal> INT_TYPE DOUBLE_TYPE FLOAT_TYPE
+%token <chVal> ';'
+%token <strVal> IDENT
+
+%type <strVal> program declaration
+
 %%
 
-start:
-     decl_or_def_s {
-       printf("%s", $1);
-       free((char *)($1));
-     }
-     ;
+program:
+declaration
+| program declaration
+;
+
+declaration:
+FLOAT_TYPE IDENT ';' {printf("<scalar_decl>%s%s;</scalar_decl>\n",$1,$2);}
+;
 
 %%
 
