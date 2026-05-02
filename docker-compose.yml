@@ -1,0 +1,11 @@
+services:
+  hw2:
+    image: hmlaipllab/compiler-design-2026-hw2
+    platform: linux/amd64
+    network_mode: none
+    volumes:
+      - ./src:/hw2/src
+      - ./testcases:/hw2/testcases
+    stdin_open: true
+    tty: true
+    command: run_test
