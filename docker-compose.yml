@@ -1,6 +1,6 @@
 services:
   hw2:
-    image: hmlaipllab/compiler-design-2026-hw2
+    image: compilerdesign/compiler-design-2026-hw2
     platform: linux/amd64
     network_mode: none
     volumes:
